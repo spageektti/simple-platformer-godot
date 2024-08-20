@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://brejqsufwy1of"]
+[gd_scene load_steps=19 format=3 uid="uid://brejqsufwy1of"]
 
 [ext_resource type="Texture2D" uid="uid://dc7bv107a6mrk" path="res://assets/backgrounds/Green.png" id="1_i6nat"]
 [ext_resource type="Texture2D" uid="uid://bomhm5titrkkg" path="res://assets/Terrain (16x16).png" id="2_1goq6"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c6tbk8xp0vorn" path="res://assets/paused.png" id="7_qwis8"]
 [ext_resource type="PackedScene" uid="uid://du2dgl1g44bv5" path="res://scenes/objects/platforms/steel_moving_platform.tscn" id="7_t4fba"]
 [ext_resource type="PackedScene" uid="uid://dlq3pmsxs2l7w" path="res://scenes/objects/platforms/gold_moving_platform.tscn" id="8_o0dmm"]
+[ext_resource type="Texture2D" uid="uid://csrxs6h5nvhvy" path="res://assets/objects/hearts/heart.png" id="9_jfiq6"]
 [ext_resource type="PackedScene" uid="uid://cn23b1p2ut1vd" path="res://scenes/objects/items/collectable.tscn" id="9_vafmq"]
 [ext_resource type="Script" path="res://fall_area.gd" id="10_3sm1c"]
 [ext_resource type="PackedScene" uid="uid://dfc1pgj3xjeqk" path="res://scenes/objects/characters/mushroom.tscn" id="11_1dsek"]
@@ -637,9 +638,10 @@ position = Vector2(0.333334, 0.666666)
 scale = Vector2(0.333333, 0.333333)
 position_smoothing_enabled = true
 
-[node name="GameManager" type="Node" parent="."]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("hearts")]
 unique_name_in_owner = true
 script = ExtResource("4_l8w2q")
+hearts = [NodePath("../UI/Hearths/HBoxContainer/Hearth1"), NodePath("../UI/Hearths/HBoxContainer/Hearth2"), NodePath("../UI/Hearths/HBoxContainer/Hearth3")]
 
 [node name="Collectables" type="Node" parent="."]
 
@@ -723,6 +725,48 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_l2gep")
 text = "Main Menu"
+
+[node name="Hearths" type="Panel" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -188.0
+offset_right = 1.0
+offset_bottom = 61.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Hearths"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.0
+offset_top = -25.0
+offset_right = 87.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Hearth1" type="TextureRect" parent="UI/Hearths/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("9_jfiq6")
+expand_mode = 2
+
+[node name="Hearth2" type="TextureRect" parent="UI/Hearths/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("9_jfiq6")
+expand_mode = 2
+
+[node name="Hearth3" type="TextureRect" parent="UI/Hearths/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("9_jfiq6")
+expand_mode = 2
 
 [node name="Platforms" type="Node" parent="."]
 

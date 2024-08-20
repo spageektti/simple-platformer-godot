@@ -40,4 +40,8 @@ func _physics_process(delta):
 
 func jump():
 	velocity.y = JUMP_VELOCITY
+
+func jump_back(x): # get away from the enemy, I don't know if it's right translation from Polish "odskoczyć"
+	jump()
+	velocity.x = x
 	
