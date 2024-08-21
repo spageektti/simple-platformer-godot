@@ -1,0 +1,40 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #00FF00;
+    /* Neon Green Text */
+}
+
+p {
+    font-size: 1.2em;
+    margin: 20px;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+a {
+    color: #1E90FF;
+    /* Neon Blue Text */
+    text-decoration: none;
+    margin: 10px;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #FFD700;
+    /* Neon Yellow Text on Hover */
+}
