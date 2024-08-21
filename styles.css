@@ -6,7 +6,6 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
     margin: 0;
     text-align: center;
     padding: 20px;
@@ -37,4 +36,115 @@ a {
 a:hover {
     color: #FFD700;
     /* Neon Yellow Text on Hover */
+}
+
+.gif-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.gif-container img {
+    max-width: 300px;
+    border: 2px solid #fff;
+}
+
+
+iframe {
+    border: none;
+    margin-top: 20px;
+    width: 80%;
+    height: 450px;
+    max-width: 800px;
+}
+
+.leaderboard {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    max-width: 600px;
+    text-align: left;
+    color: #fff;
+}
+
+.leaderboard h3 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #FFD700;
+    /* Neon Yellow Text */
+}
+
+.leaderboard form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.leaderboard input[type="text"] {
+    padding: 10px;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+}
+
+.leaderboard button {
+    padding: 10px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    background-color: #1E90FF;
+    /* Neon Blue Button */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.leaderboard button:hover {
+    background-color: #FFD700;
+    /* Neon Yellow on Hover */
+}
+
+#top-scores {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#top-scores li {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    p {
+        font-size: 1em;
+        margin: 15px;
+    }
+
+    a {
+        font-size: 1.2em;
+    }
+
+    .gif-container img {
+        max-width: 90%;
+    }
+
+    iframe {
+        width: 100%;
+        height: auto;
+    }
 }
