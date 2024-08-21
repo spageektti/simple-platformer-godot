@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dtxk1ms3uf31w"]
+[gd_scene load_steps=23 format=3 uid="uid://dtxk1ms3uf31w"]
 
 [ext_resource type="Texture2D" uid="uid://dc7bv107a6mrk" path="res://assets/backgrounds/Green.png" id="1_imw0p"]
 [ext_resource type="Texture2D" uid="uid://bomhm5titrkkg" path="res://assets/Terrain (16x16).png" id="2_a8p68"]
@@ -15,6 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://c6tbk8xp0vorn" path="res://assets/paused.png" id="9_unr0n"]
 [ext_resource type="PackedScene" uid="uid://dfc1pgj3xjeqk" path="res://scenes/objects/characters/mushroom.tscn" id="14_3v4pv"]
 [ext_resource type="Texture2D" uid="uid://bjhg46g3s1845" path="res://assets/backgrounds/mountains/sky.png" id="15_d23ct"]
+[ext_resource type="Texture2D" uid="uid://dpmuldl0cwkcg" path="res://assets/backgrounds/mountains/trees.png" id="16_l0w8f"]
+[ext_resource type="Texture2D" uid="uid://dwvukwcb3bpu" path="res://assets/backgrounds/mountains/far-clouds.png" id="16_pn3rf"]
+[ext_resource type="Texture2D" uid="uid://dgmax7lcjx6uf" path="res://assets/backgrounds/mountains/mountains.png" id="16_ujwsy"]
+[ext_resource type="Texture2D" uid="uid://dm0mcwlh2lgrs" path="res://assets/backgrounds/mountains/near-clouds.png" id="17_npcii"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_poheg"]
 texture = ExtResource("2_a8p68")
@@ -964,14 +968,75 @@ position = Vector2(2285, 105)
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 1)
 motion_scale = Vector2(0.4, 0.4)
-motion_mirroring = Vector2(2048, 2048)
+motion_mirroring = Vector2(3200, 2400)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
 texture = ExtResource("15_d23ct")
 centered = false
 region_enabled = true
-region_rect = Rect2(0, 0, 2048, 2048)
+region_rect = Rect2(0, 0, 3200, 2400)
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(0, -150)
+scale = Vector2(4, 4)
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("16_pn3rf")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2400, 240)
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(0, -150)
+scale = Vector2(4, 4)
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("17_npcii")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2400, 240)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(0, -150)
+scale = Vector2(4, 4)
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("16_ujwsy")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2400, 240)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -150)
+scale = Vector2(4, 4)
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("16_l0w8f")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2400, 240)
 
 [connection signal="pressed" from="UI/Pause/Panel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/Panel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]
