@@ -54,3 +54,5 @@ func jump_back(x): # get away from the enemy, I don't know if it's right transla
 	jump()
 	velocity.x = x
 	
+func hit():
+	sprite_2d.animation = "hit"

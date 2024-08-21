@@ -2,6 +2,7 @@ extends RigidBody2D
 
 @onready var game_manager = %GameManager
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var player_sprite_2d = %Sprite2D
 
 func _on_area_2d_body_entered(body):
 	if(body.name == "CharacterBody2D"):
@@ -16,6 +17,7 @@ func _on_area_2d_body_entered(body):
 			game_manager.add_point()
 		else:
 			game_manager.decrease_health()
+			body.hit()
 			if(x_delta > 0):
 				body.jump_back(250)
 			else:
