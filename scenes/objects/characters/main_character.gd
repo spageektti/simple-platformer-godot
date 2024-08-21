@@ -16,7 +16,8 @@ func _physics_process(delta):
 	if(sprite_2d.animation == "hit"):
 		pass
 	elif(velocity.x > 1 || velocity.x < -1):
-		sprite_2d.animation = "run"
+		if(sprite_2d.animation != "run"):
+			sprite_2d.play("run")
 	else:
 		sprite_2d.animation = "default"
 	
@@ -26,7 +27,13 @@ func _physics_process(delta):
 	else:
 		velocity.y += gravity * delta
 		if(sprite_2d.animation != "hit"):
-			sprite_2d.animation = "jump"
+			if(velocity.y > 0):
+				sprite_2d.animation = "fall"
+			elif(jump_count == 1):
+				sprite_2d.animation = "jump"
+			elif(jump_count == 2):
+				sprite_2d.animation = "double_jump"
+					
 
 	# Handle jump.
 	if Input.is_action_just_pressed("up") and (jump_count < 1 or (jump_count < 2 and double_jump_allowed)):
