@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://brejqsufwy1of"]
+[gd_scene load_steps=24 format=3 uid="uid://brejqsufwy1of"]
 
 [ext_resource type="Texture2D" uid="uid://dc7bv107a6mrk" path="res://assets/backgrounds/Green.png" id="1_i6nat"]
 [ext_resource type="Texture2D" uid="uid://bomhm5titrkkg" path="res://assets/Terrain (16x16).png" id="2_1goq6"]
@@ -14,6 +14,11 @@
 [ext_resource type="PackedScene" uid="uid://cn23b1p2ut1vd" path="res://scenes/objects/items/collectable.tscn" id="9_vafmq"]
 [ext_resource type="Script" path="res://fall_area.gd" id="10_3sm1c"]
 [ext_resource type="PackedScene" uid="uid://dfc1pgj3xjeqk" path="res://scenes/objects/characters/mushroom.tscn" id="11_1dsek"]
+[ext_resource type="Texture2D" uid="uid://bjhg46g3s1845" path="res://assets/backgrounds/mountains/sky.png" id="15_p01as"]
+[ext_resource type="Texture2D" uid="uid://dwvukwcb3bpu" path="res://assets/backgrounds/mountains/far-clouds.png" id="16_n01bj"]
+[ext_resource type="Texture2D" uid="uid://dm0mcwlh2lgrs" path="res://assets/backgrounds/mountains/near-clouds.png" id="17_ncwym"]
+[ext_resource type="Texture2D" uid="uid://dgmax7lcjx6uf" path="res://assets/backgrounds/mountains/mountains.png" id="18_alwxw"]
+[ext_resource type="Texture2D" uid="uid://dpmuldl0cwkcg" path="res://assets/backgrounds/mountains/trees.png" id="19_5xv02"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_poheg"]
 texture = ExtResource("2_1goq6")
@@ -614,6 +619,7 @@ corner_radius_bottom_left = 5
 [node name="Node" type="Node"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 texture_filter = 1
 offset_left = 1.0
 offset_top = -2.0
@@ -917,6 +923,79 @@ position = Vector2(1504, 117)
 
 [node name="collectable39" parent="." instance=ExtResource("9_vafmq")]
 position = Vector2(1792, 128)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 1)
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(3200, 2400)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+texture = ExtResource("15_p01as")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 3200, 2400)
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(0, -150)
+scale = Vector2(4, 4)
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("16_n01bj")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2400, 240)
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(0, -150)
+scale = Vector2(4, 4)
+motion_scale = Vector2(0.8, 0.8)
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5"]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("17_ncwym")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2400, 240)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+texture_filter = 1
+position = Vector2(0, -150)
+scale = Vector2(4, 4)
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("18_alwxw")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2400, 240)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -150)
+scale = Vector2(4, 4)
+motion_scale = Vector2(0.6, 0.6)
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+texture_filter = 1
+texture_repeat = 2
+texture = ExtResource("19_5xv02")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2400, 240)
 
 [connection signal="pressed" from="UI/Pause/Panel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/Panel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]
