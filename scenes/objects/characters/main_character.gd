@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -450.0
 
 @onready var sprite_2d = $Sprite2D
 @export var double_jump_allowed : bool # shouldn't be enabled on all levels and maybe I will add difficulty levels in future
+@export var double_jump_offset : float = 125.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -44,7 +45,10 @@ func _physics_process(delta):
 		sprite_2d.flip_h = isLeft
 
 func jump():
-	velocity.y = JUMP_VELOCITY
+	if(jump_count < 1):
+		velocity.y = JUMP_VELOCITY
+	else:
+		velocity.y = JUMP_VELOCITY + double_jump_offset
 
 func jump_back(x): # get away from the enemy, I don't know if it's right translation from Polish "odskoczyć"
 	jump()

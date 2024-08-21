@@ -639,7 +639,6 @@ layer_0/tile_data = PackedInt32Array(-65536, 786432, 4, -1, 983040, 4, 65535, 98
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_4kq8s")]
 position = Vector2(55, 164)
-double_jump_allowed = true
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(0.333334, 0.666666)
