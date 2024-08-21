@@ -58,9 +58,7 @@ func jump_back(x): # get away from the enemy, I don't know if it's right transla
 	velocity.x = x
 	
 func hit():
-	if(sprite_2d.animation == "hit"):
-		sprite_2d.animation = "default"
-	sprite_2d.animation = "hit"
+	sprite_2d.play("hit")
 	
 func _on_sprite_2d_animation_finished():
 	print(sprite_2d.animation)
