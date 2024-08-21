@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dtxk1ms3uf31w"]
+[gd_scene load_steps=19 format=3 uid="uid://dtxk1ms3uf31w"]
 
 [ext_resource type="Texture2D" uid="uid://dc7bv107a6mrk" path="res://assets/backgrounds/Green.png" id="1_imw0p"]
 [ext_resource type="Texture2D" uid="uid://bomhm5titrkkg" path="res://assets/Terrain (16x16).png" id="2_a8p68"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cn23b1p2ut1vd" path="res://scenes/objects/items/collectable.tscn" id="9_8xbkt"]
 [ext_resource type="Texture2D" uid="uid://c6tbk8xp0vorn" path="res://assets/paused.png" id="9_unr0n"]
 [ext_resource type="PackedScene" uid="uid://dfc1pgj3xjeqk" path="res://scenes/objects/characters/mushroom.tscn" id="14_3v4pv"]
+[ext_resource type="Texture2D" uid="uid://bjhg46g3s1845" path="res://assets/backgrounds/mountains/sky.png" id="15_d23ct"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_poheg"]
 texture = ExtResource("2_a8p68")
@@ -621,6 +622,7 @@ corner_radius_bottom_left = 5
 [node name="Node" type="Node"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 texture_filter = 1
 offset_left = 1.0
 offset_top = -2.0
@@ -958,6 +960,18 @@ position = Vector2(2695, 393)
 
 [node name="mushroom5" parent="." instance=ExtResource("14_3v4pv")]
 position = Vector2(2285, 105)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("15_d23ct")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 2048, 2048)
 
 [connection signal="pressed" from="UI/Pause/Panel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/Panel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]
