@@ -13,7 +13,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jump_count = 0
 
 func _physics_process(delta):
-	if(velocity.x > 1 || velocity.x < -1):
+	if(sprite_2d.animation == "hit"):
+		pass
+	elif(velocity.x > 1 || velocity.x < -1):
 		sprite_2d.animation = "run"
 	else:
 		sprite_2d.animation = "default"
@@ -23,7 +25,8 @@ func _physics_process(delta):
 		jump_count = 0
 	else:
 		velocity.y += gravity * delta
-		sprite_2d.animation = "jump"
+		if(sprite_2d.animation != "hit"):
+			sprite_2d.animation = "jump"
 
 	# Handle jump.
 	if Input.is_action_just_pressed("up") and (jump_count < 1 or (jump_count < 2 and double_jump_allowed)):
@@ -55,4 +58,11 @@ func jump_back(x): # get away from the enemy, I don't know if it's right transla
 	velocity.x = x
 	
 func hit():
+	if(sprite_2d.animation == "hit"):
+		sprite_2d.animation = "default"
 	sprite_2d.animation = "hit"
+	
+func _on_sprite_2d_animation_finished():
+	print(sprite_2d.animation)
+	if(sprite_2d.animation == "hit"):
+		sprite_2d.animation = "default"

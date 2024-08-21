@@ -2,7 +2,6 @@ extends RigidBody2D
 
 @onready var game_manager = %GameManager
 @onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var player_sprite_2d = %Sprite2D
 
 func _on_area_2d_body_entered(body):
 	if(body.name == "CharacterBody2D"):
