@@ -3,9 +3,8 @@
 [ext_resource type="Script" path="res://scenes/objects/platforms/moving_platform.gd" id="1_d03p1"]
 [ext_resource type="Texture2D" uid="uid://cmltyx2gjt7u8" path="res://assets/objects/platforms/gold_platform.png" id="2_colwj"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g2ir1"]
-radius = 8.0
-height = 148.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_km1gh"]
+size = Vector2(149, 16)
 
 [node name="movingPlatform" type="CharacterBody2D"]
 script = ExtResource("1_d03p1")
@@ -20,6 +19,6 @@ scale = Vector2(3.1, 3.1)
 texture = ExtResource("2_colwj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(50, 5)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_g2ir1")
+position = Vector2(50, 6)
+shape = SubResource("RectangleShape2D_km1gh")
+one_way_collision = true

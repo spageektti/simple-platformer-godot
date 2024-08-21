@@ -2,12 +2,14 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -450.0
+
 @onready var sprite_2d = $Sprite2D
+@export var double_jump_allowed : bool # shouldn't be enabled on all levels and maybe I will add difficulty levels in future
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
+var jump_count = 0
 
 func _physics_process(delta):
 	if(velocity.x > 1 || velocity.x < -1):
@@ -16,13 +18,16 @@ func _physics_process(delta):
 		sprite_2d.animation = "default"
 	
 	# Add the gravity.
-	if not is_on_floor():
+	if is_on_floor():
+		jump_count = 0
+	else:
 		velocity.y += gravity * delta
 		sprite_2d.animation = "jump"
 
 	# Handle jump.
-	if Input.is_action_just_pressed("up") and is_on_floor():
+	if Input.is_action_just_pressed("up") and (jump_count < 1 or (jump_count < 2 and double_jump_allowed)):
 		jump()
+		jump_count += 1
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
