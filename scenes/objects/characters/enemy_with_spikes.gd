@@ -21,6 +21,8 @@ func _on_area_2d_body_entered(body):
 			curr_action = 2
 		else:
 			game_manager.decrease_health()
+			if(spikes_on): #damage more when spikes on
+				game_manager.decrease_health()
 			body.hit()
 			if(x_delta > 0):
 				body.jump_back(250)
@@ -34,10 +36,10 @@ func _on_animated_sprite_2d_animation_finished():
 		queue_free()
 	elif(curr_action == 0):
 		spikes_on = true
-		animated_sprite_2d.animation = "spikes"
+		animated_sprite_2d.play("spikes")
 	elif(curr_action == 1):
 		spikes_on = false
-		animated_sprite_2d.animation = "default"
+		animated_sprite_2d.play("default")
 
 func _on_animated_sprite_2d_animation_looped():
 	loop_count += 1
