@@ -5,6 +5,7 @@ extends RigidBody2D
 
 var spikes_on := false
 var loop_count := 0
+var curr_action := 0 # 0 - spikes in | 1 - spikes out | 2 - death
 
 func _on_area_2d_body_entered(body):
 	if(body.name == "CharacterBody2D"):
@@ -17,6 +18,7 @@ func _on_area_2d_body_entered(body):
 			body.display_particle()
 			body.jump()
 			game_manager.add_point()
+			curr_action = 2
 		else:
 			game_manager.decrease_health()
 			body.hit()
@@ -25,18 +27,28 @@ func _on_area_2d_body_entered(body):
 			else:
 				body.jump_back(-250)
 
-
 func _on_animated_sprite_2d_animation_finished():
-	queue_free()
-
+	print("finished animation, curr action:")
+	print(curr_action)
+	if(curr_action == 2):
+		queue_free()
+	elif(curr_action == 0):
+		spikes_on = true
+		animated_sprite_2d.animation = "spikes"
+	elif(curr_action == 1):
+		spikes_on = false
+		animated_sprite_2d.animation = "default"
 
 func _on_animated_sprite_2d_animation_looped():
-	loop_count++
+	loop_count += 1
+	print(loop_count)
 	if(animated_sprite_2d.animation == "default" and loop_count == 3):
+		curr_action = 0
+		loop_count = 0
 		animated_sprite_2d.play("spikes_in")
+		
+	elif(animated_sprite_2d.animation == "spikes" and loop_count == 2):
+		curr_action = 1
 		loop_count = 0
-		spikes_on = true
-	elif(animated_sprite_2d.animation == "spikes"):
 		animated_sprite_2d.play("spikes_out")
-		loop_count = 0
-		spikes_on = false
+		
