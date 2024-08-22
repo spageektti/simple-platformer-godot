@@ -14,8 +14,8 @@ func _process(delta):
 			position.x -= delta * 50
 		animated_sprite_2d.flip_h = isLeft
 
-func _on_area_2d_body_entered(body, delta):
-	if(body.name == "CharacterBody2D"):
+func _on_area_2d_body_entered(body):
+	if(body.get_name() == "CharacterBody2D"):
 		var y_delta = position.y - body.position.y
 		var x_delta = body.position.x - position.x
 		print(body.position.y)
@@ -32,8 +32,13 @@ func _on_area_2d_body_entered(body, delta):
 				body.jump_back(250)
 			else:
 				body.jump_back(-250)
-	elif(body.name == "border"):
+	elif(body.get_name() == "border"):
 		isLeft = not isLeft
+	print(body.get_name())
 
 func _on_animated_sprite_2d_animation_finished():
 	queue_free()
+
+
+func _on_area_2d_area_entered(area):
+	pass # Replace with function body.

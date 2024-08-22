@@ -914,6 +914,7 @@ position = Vector2(817, 95)
 
 [node name="mushroom" parent="." instance=ExtResource("11_2nwsn")]
 position = Vector2(672, 583)
+moving = true
 
 [node name="mushroom2" parent="." instance=ExtResource("11_2nwsn")]
 position = Vector2(1590, 438)
@@ -1007,7 +1008,7 @@ region_rect = Rect2(0, 0, 2400, 240)
 position = Vector2(327, 398)
 
 [node name="border" parent="." instance=ExtResource("20_me4tp")]
-position = Vector2(537, 611)
+position = Vector2(536, 608)
 
 [connection signal="pressed" from="UI/Pause/Panel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/Panel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]
