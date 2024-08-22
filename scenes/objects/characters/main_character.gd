@@ -2,7 +2,10 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -450.0
+var points = 0
 
+@onready var game_manager = %GameManager
+@onready var points_label = %pointsLabel
 @onready var sprite_2d = $Sprite2D
 @export var double_jump_allowed : bool # shouldn't be enabled on all levels and maybe I will add difficulty levels in future
 @export var double_jump_offset : float = 125.0
@@ -79,3 +82,8 @@ func display_particle():
 	var particle_node = particle.instantiate()
 	particle_node.position = position
 	get_parent().add_child(particle_node)
+	
+func add_point():
+	points += 1
+	print(points)
+	points_label.text = "Points: " + str(points)
