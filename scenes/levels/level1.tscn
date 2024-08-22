@@ -922,6 +922,7 @@ position = Vector2(1590, 438)
 
 [node name="mushroom3" parent="." instance=ExtResource("11_2nwsn")]
 position = Vector2(3073, 389)
+moving = true
 
 [node name="mushroom4" parent="." instance=ExtResource("11_2nwsn")]
 position = Vector2(2261, 441)
@@ -1013,6 +1014,18 @@ position = Vector2(536, 608)
 
 [node name="border2" parent="." instance=ExtResource("20_me4tp")]
 position = Vector2(989, 606)
+
+[node name="turtle2" parent="." instance=ExtResource("19_tmder")]
+position = Vector2(1355, 590)
+
+[node name="turtle3" parent="." instance=ExtResource("19_tmder")]
+position = Vector2(3539, 494)
+
+[node name="border3" parent="." instance=ExtResource("20_me4tp")]
+position = Vector2(2980, 416)
+
+[node name="border4" parent="." instance=ExtResource("20_me4tp")]
+position = Vector2(3201, 412)
 
 [connection signal="pressed" from="UI/Pause/Panel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/Panel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]
