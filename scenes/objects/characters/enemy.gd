@@ -29,8 +29,6 @@ func _on_area_2d_body_entered(body):
 			animated_sprite_2d.play("hit")
 			body.display_particle()
 			body.jump()
-			game_manager.add_point()
-			display_pineapple()
 		else:
 			game_manager.decrease_health()
 			body.hit()
@@ -41,6 +39,7 @@ func _on_area_2d_body_entered(body):
 	print(body.get_name())
 
 func _on_animated_sprite_2d_animation_finished():
+	display_pineapple()
 	queue_free()
 
 func _on_area_2d_area_entered(area):

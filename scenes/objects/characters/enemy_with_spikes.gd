@@ -18,7 +18,6 @@ func _on_area_2d_body_entered(body):
 			animated_sprite_2d.play("hit")
 			body.display_particle()
 			body.jump()
-			game_manager.add_point()
 			curr_action = 2
 		else:
 			game_manager.decrease_health()
@@ -34,6 +33,7 @@ func _on_animated_sprite_2d_animation_finished():
 	print("finished animation, curr action:")
 	print(curr_action)
 	if(curr_action == 2):
+		display_pineapple()
 		queue_free()
 	elif(curr_action == 0):
 		spikes_on = true
@@ -55,3 +55,7 @@ func _on_animated_sprite_2d_animation_looped():
 		loop_count = 0
 		animated_sprite_2d.play("spikes_out")
 		
+func display_pineapple():
+	var pineapple_node = pineapple.instantiate()
+	pineapple_node.position = position
+	get_parent().add_child(pineapple_node)
