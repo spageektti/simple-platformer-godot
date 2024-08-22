@@ -5,6 +5,16 @@ extends RigidBody2D
 @export var moving = false
 
 var pineapple = load("res://scenes/objects/items/collectables/pineapple.tscn")
+var apple = load("res://scenes/objects/items/collectables/apple.tscn")
+var bananas = load("res://scenes/objects/items/collectables/bananas.tscn")
+var cherries = load("res://scenes/objects/items/collectables/cherries.tscn")
+var kiwi = load("res://scenes/objects/items/collectables/kiwi.tscn")
+var melon = load("res://scenes/objects/items/collectables/melon.tscn")
+var orange = load("res://scenes/objects/items/collectables/orange.tscn")
+var strawberry = load("res://scenes/objects/items/collectables/strawberry.tscn")
+
+var fruits = [pineapple, apple, bananas, cherries, kiwi, melon, orange, strawberry]
+
 var isLeft = 0
 
 func _ready():
@@ -39,7 +49,7 @@ func _on_area_2d_body_entered(body):
 	print(body.get_name())
 
 func _on_animated_sprite_2d_animation_finished():
-	display_pineapple()
+	display_random_fruit()
 	queue_free()
 
 func _on_area_2d_area_entered(area):
@@ -47,7 +57,8 @@ func _on_area_2d_area_entered(area):
 		isLeft = not isLeft
 	print(area.get_name())
 	
-func display_pineapple():
-	var pineapple_node = pineapple.instantiate()
-	pineapple_node.position = position
-	get_parent().add_child(pineapple_node)
+func display_random_fruit():
+	var random_fruit = fruits[randi() % fruits.size()]
+	var fruit_node = random_fruit.instantiate()
+	fruit_node.position = position
+	get_parent().add_child(fruit_node)

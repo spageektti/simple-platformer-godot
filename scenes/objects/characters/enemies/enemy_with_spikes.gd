@@ -6,7 +6,17 @@ extends RigidBody2D
 var spikes_on := false
 var loop_count := 0
 var curr_action := 0 # 0 - spikes in | 1 - spikes out | 2 - death
+
 var pineapple = load("res://scenes/objects/items/collectables/pineapple.tscn")
+var apple = load("res://scenes/objects/items/collectables/apple.tscn")
+var bananas = load("res://scenes/objects/items/collectables/bananas.tscn")
+var cherries = load("res://scenes/objects/items/collectables/cherries.tscn")
+var kiwi = load("res://scenes/objects/items/collectables/kiwi.tscn")
+var melon = load("res://scenes/objects/items/collectables/melon.tscn")
+var orange = load("res://scenes/objects/items/collectables/orange.tscn")
+var strawberry = load("res://scenes/objects/items/collectables/strawberry.tscn")
+
+var fruits = [pineapple, apple, bananas, cherries, kiwi, melon, orange, strawberry]
 
 func _on_area_2d_body_entered(body):
 	if(body.name == "CharacterBody2D"):
@@ -33,7 +43,7 @@ func _on_animated_sprite_2d_animation_finished():
 	print("finished animation, curr action:")
 	print(curr_action)
 	if(curr_action == 2):
-		display_pineapple()
+		display_random_fruit()
 		queue_free()
 	elif(curr_action == 0):
 		spikes_on = true
@@ -55,7 +65,8 @@ func _on_animated_sprite_2d_animation_looped():
 		loop_count = 0
 		animated_sprite_2d.play("spikes_out")
 		
-func display_pineapple():
-	var pineapple_node = pineapple.instantiate()
-	pineapple_node.position = position
-	get_parent().add_child(pineapple_node)
+func display_random_fruit():
+	var random_fruit = fruits[randi() % fruits.size()]
+	var fruit_node = random_fruit.instantiate()
+	fruit_node.position = position
+	get_parent().add_child(fruit_node)
