@@ -1,22 +1,9 @@
 [gd_scene load_steps=43 format=3 uid="uid://dfc1pgj3xjeqk"]
 
+[ext_resource type="Script" path="res://scenes/objects/characters/enemy.gd" id="1_dsg2c"]
 [ext_resource type="Texture2D" uid="uid://dl2qorlad117e" path="res://assets/characters/mushroom/Idle (32x32).png" id="1_fgdwg"]
 [ext_resource type="Texture2D" uid="uid://cfy4ahm0kiyfe" path="res://assets/characters/mushroom/Hit.png" id="2_c4bol"]
 [ext_resource type="Texture2D" uid="uid://civolepaaavba" path="res://assets/characters/mushroom/Run (32x32).png" id="3_btjoy"]
-
-[sub_resource type="GDScript" id="GDScript_dut4k"]
-script/source = "extends RigidBody2D
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_225nr"]
 atlas = ExtResource("1_fgdwg")
@@ -287,8 +274,8 @@ size = Vector2(47, 35)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jlaof"]
 size = Vector2(51, 39)
 
-[node name="mushroom" type="RigidBody2D"]
-script = SubResource("GDScript_dut4k")
+[node name="mushroom" type="CharacterBody2D"]
+script = ExtResource("1_dsg2c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
