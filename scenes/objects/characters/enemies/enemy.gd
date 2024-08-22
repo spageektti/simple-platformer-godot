@@ -15,7 +15,8 @@ var strawberry = load("res://scenes/objects/items/collectables/strawberry.tscn")
 
 var fruits = [pineapple, apple, bananas, cherries, kiwi, melon, orange, strawberry]
 
-var isLeft = 0
+@export var isInitiallyLeft : int = 0
+var isLeft = isInitiallyLeft
 
 func _ready():
 	if(moving):

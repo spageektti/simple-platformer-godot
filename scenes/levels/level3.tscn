@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://brejqsufwy1of"]
+[gd_scene load_steps=33 format=3 uid="uid://brejqsufwy1of"]
 
 [ext_resource type="Texture2D" uid="uid://dc7bv107a6mrk" path="res://assets/backgrounds/Green.png" id="1_i6nat"]
 [ext_resource type="Texture2D" uid="uid://bomhm5titrkkg" path="res://assets/Terrain (16x16).png" id="2_1goq6"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://cwunp6v22bw13" path="res://scenes/objects/items/collectables/orange.tscn" id="25_tsbu1"]
 [ext_resource type="PackedScene" uid="uid://csfc4m3k3oumx" path="res://scenes/objects/items/collectables/pineapple.tscn" id="26_kja1y"]
 [ext_resource type="PackedScene" uid="uid://uoealfss85i4" path="res://scenes/objects/items/collectables/strawberry.tscn" id="27_7gl6o"]
+[ext_resource type="PackedScene" uid="uid://dgplmxlh7xwg2" path="res://scenes/objects/characters/enemies/skull.tscn" id="28_tnb1e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_poheg"]
 texture = ExtResource("2_1goq6")
@@ -1052,6 +1053,16 @@ position = Vector2(694, 342)
 
 [node name="collectable46" parent="." instance=ExtResource("27_7gl6o")]
 position = Vector2(696, 224)
+
+[node name="skull" parent="." instance=ExtResource("28_tnb1e")]
+position = Vector2(3064, 584)
+moving = true
+
+[node name="border5" parent="." instance=ExtResource("20_ebvgb")]
+position = Vector2(2942, 604)
+
+[node name="border6" parent="." instance=ExtResource("20_ebvgb")]
+position = Vector2(3396, 602)
 
 [connection signal="pressed" from="UI/Pause/Panel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/Panel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]
