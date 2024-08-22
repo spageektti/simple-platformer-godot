@@ -15,20 +15,35 @@ var strawberry = load("res://scenes/objects/items/collectables/strawberry.tscn")
 
 var fruits = [pineapple, apple, bananas, cherries, kiwi, melon, orange, strawberry]
 
-@export var isInitiallyLeft : int = 0
-var isLeft = isInitiallyLeft
+@export var reversedDirection : bool = false
+var isLeft = 0
+
+@export var lockPositionY : bool = false
+@export var lockPositionX : bool = false
+var lock_position_y = 0
+var lock_position_x = 0
 
 func _ready():
 	if(moving):
 		animated_sprite_2d.play("run")
+	lock_position_x = position.x
+	lock_position_y = position.y
 
 func _process(delta):
+	if(lockPositionX):
+		position.x = lock_position_x
+	if(lockPositionY):
+		position.y = lock_position_y
+	
 	if(moving):
 		if(isLeft):
 			position.x += delta * 50
 		else:
 			position.x -= delta * 50
-		animated_sprite_2d.flip_h = isLeft
+		if(reversedDirection):
+			animated_sprite_2d.flip_h = not isLeft
+		else:
+			animated_sprite_2d.flip_h = isLeft
 
 func _on_area_2d_body_entered(body):
 	if(body.get_name() == "CharacterBody2D"):

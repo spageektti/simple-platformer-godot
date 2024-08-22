@@ -170,13 +170,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdfbf"]
-size = Vector2(47, 35)
+size = Vector2(65.5, 40.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jlaof"]
-size = Vector2(51, 39)
+size = Vector2(69.5, 47.5)
 
 [node name="skull" type="RigidBody2D"]
 script = ExtResource("1_b0hq6")
+reversedDirection = true
+lockPositionY = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -189,14 +191,14 @@ frame = 4
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(12.5, 23.5)
+position = Vector2(12.25, 13.75)
 shape = SubResource("RectangleShape2D_qdfbf")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(12.5, 20.5)
+position = Vector2(12.25, 10.25)
 shape = SubResource("RectangleShape2D_jlaof")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
