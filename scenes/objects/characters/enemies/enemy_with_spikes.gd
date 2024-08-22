@@ -6,7 +6,7 @@ extends RigidBody2D
 var spikes_on := false
 var loop_count := 0
 var curr_action := 0 # 0 - spikes in | 1 - spikes out | 2 - death
-var pineapple = load("res://scenes/objects/items/pineapple.tscn")
+var pineapple = load("res://scenes/objects/items/collectables/pineapple.tscn")
 
 func _on_area_2d_body_entered(body):
 	if(body.name == "CharacterBody2D"):

@@ -4,7 +4,7 @@ extends RigidBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @export var moving = false
 
-var pineapple = load("res://scenes/objects/items/pineapple.tscn")
+var pineapple = load("res://scenes/objects/items/collectables/pineapple.tscn")
 var isLeft = 0
 
 func _ready():
