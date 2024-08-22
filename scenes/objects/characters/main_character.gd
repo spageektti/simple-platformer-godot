@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -450.0
 
 @onready var sprite_2d = $Sprite2D
 @export var double_jump_allowed : bool # shouldn't be enabled on all levels and maybe I will add difficulty levels in future
 @export var double_jump_offset : float = 125.0
-@export var particle : PackedScene
+
+var particle = load("res://scenes/objects/particles.tscn")
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")

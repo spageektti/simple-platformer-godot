@@ -1,10 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://cptv42xoww38x"]
+[gd_scene load_steps=22 format=3 uid="uid://cptv42xoww38x"]
 
 [ext_resource type="Texture2D" uid="uid://dc7bv107a6mrk" path="res://assets/backgrounds/Green.png" id="1_cecvi"]
 [ext_resource type="Texture2D" uid="uid://bomhm5titrkkg" path="res://assets/Terrain (16x16).png" id="2_cn4ln"]
 [ext_resource type="PackedScene" uid="uid://d1x0qq1t5n6vd" path="res://scenes/objects/characters/main_character.tscn" id="3_jjreh"]
 [ext_resource type="Script" path="res://game_manager.gd" id="4_a66jy"]
-[ext_resource type="PackedScene" uid="uid://cua6ob2uowrnj" path="res://scenes/objects/particles.tscn" id="4_jyv22"]
 [ext_resource type="PackedScene" uid="uid://cn23b1p2ut1vd" path="res://scenes/objects/items/collectable.tscn" id="5_ykie0"]
 [ext_resource type="PackedScene" uid="uid://ctwhi27gdub3j" path="res://scenes/objects/items/end.tscn" id="6_swso3"]
 [ext_resource type="PackedScene" uid="uid://dtxk1ms3uf31w" path="res://scenes/levels/level2.tscn" id="7_c4gfg"]
@@ -645,7 +644,6 @@ layer_0/tile_data = PackedInt32Array(851968, 393216, 0, 851969, 458752, 0, 85197
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_jjreh")]
 position = Vector2(70, 515)
 double_jump_allowed = true
-particle = ExtResource("4_jyv22")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(5.96046e-07, 0.333333)
