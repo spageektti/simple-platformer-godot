@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cptv42xoww38x"]
+[gd_scene load_steps=24 format=3 uid="uid://cptv42xoww38x"]
 
 [ext_resource type="Texture2D" uid="uid://dc7bv107a6mrk" path="res://assets/backgrounds/Green.png" id="1_cecvi"]
 [ext_resource type="Texture2D" uid="uid://bomhm5titrkkg" path="res://assets/Terrain (16x16).png" id="2_cn4ln"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dgmax7lcjx6uf" path="res://assets/backgrounds/mountains/mountains.png" id="17_u2kso"]
 [ext_resource type="Texture2D" uid="uid://dpmuldl0cwkcg" path="res://assets/backgrounds/mountains/trees.png" id="18_tk7ef"]
 [ext_resource type="PackedScene" uid="uid://bpuph37hvyji5" path="res://scenes/objects/characters/turtle.tscn" id="19_tmder"]
+[ext_resource type="PackedScene" uid="uid://bxutwlxrvfc7f" path="res://scenes/objects/border.tscn" id="20_me4tp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_poheg"]
 texture = ExtResource("2_cn4ln")
@@ -1004,6 +1005,9 @@ region_rect = Rect2(0, 0, 2400, 240)
 
 [node name="turtle" parent="." instance=ExtResource("19_tmder")]
 position = Vector2(327, 398)
+
+[node name="border" parent="." instance=ExtResource("20_me4tp")]
+position = Vector2(537, 611)
 
 [connection signal="pressed" from="UI/Pause/Panel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
 [connection signal="pressed" from="UI/Pause/Panel/VBoxContainer/MainMenu" to="UI/Pause" method="_on_main_menu_pressed"]

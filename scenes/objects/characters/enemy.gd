@@ -1,10 +1,18 @@
-extends CharacterBody2D
+extends RigidBody2D
 
 @onready var game_manager = %GameManager
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @export var moving = false
 
+var isLeft = 0
 
+func _process(delta):
+	if(moving):
+		if(isLeft):
+			position.x += delta * 50
+		else:
+			position.x -= delta * 50
+		animated_sprite_2d.flip_h = isLeft
 
 func _on_area_2d_body_entered(body, delta):
 	if(body.name == "CharacterBody2D"):
@@ -25,13 +33,7 @@ func _on_area_2d_body_entered(body, delta):
 			else:
 				body.jump_back(-250)
 	elif(body.name == "border"):
-		var isLeft = velocity.x < 0
-		if(isLeft):
-			
-			velocity.x = delta * 50
-		else:
-			velocity.x = -delta * 50
-		animated_sprite_2d.flip_h = isLeft
+		isLeft = not isLeft
 
 func _on_animated_sprite_2d_animation_finished():
 	queue_free()
