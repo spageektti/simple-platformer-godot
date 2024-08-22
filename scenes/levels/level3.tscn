@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d1x0qq1t5n6vd" path="res://scenes/objects/characters/main_character.tscn" id="3_7viyx"]
 [ext_resource type="Script" path="res://game_manager.gd" id="4_l8w2q"]
 [ext_resource type="PackedScene" uid="uid://ctwhi27gdub3j" path="res://scenes/objects/items/end.tscn" id="5_3o7rm"]
-[ext_resource type="PackedScene" uid="uid://1wpee1v4kpfg" path="res://scenes/menu/main_menu.tscn" id="6_iyfus"]
+[ext_resource type="PackedScene" uid="uid://c8ek1261ooob0" path="res://scenes/levels/level4.tscn" id="6_wp4y4"]
 [ext_resource type="Script" path="res://scenes/levels/pause.gd" id="7_1makq"]
 [ext_resource type="Texture2D" uid="uid://c6tbk8xp0vorn" path="res://assets/paused.png" id="7_qwis8"]
 [ext_resource type="PackedScene" uid="uid://du2dgl1g44bv5" path="res://scenes/objects/platforms/steel_moving_platform.tscn" id="7_t4fba"]
@@ -663,7 +663,7 @@ hearts = [NodePath("../UI/Hearths/HBoxContainer/Hearth1"), NodePath("../UI/Heart
 
 [node name="end" parent="." instance=ExtResource("5_3o7rm")]
 position = Vector2(3310, 164)
-target_level = ExtResource("6_iyfus")
+target_level = ExtResource("6_wp4y4")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -936,6 +936,7 @@ position = Vector2(1504, 117)
 position = Vector2(1792, 128)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(938, 239.5)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(0, 1)
