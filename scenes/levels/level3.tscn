@@ -11,9 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://du2dgl1g44bv5" path="res://scenes/objects/platforms/steel_moving_platform.tscn" id="7_t4fba"]
 [ext_resource type="PackedScene" uid="uid://dlq3pmsxs2l7w" path="res://scenes/objects/platforms/gold_moving_platform.tscn" id="8_o0dmm"]
 [ext_resource type="Texture2D" uid="uid://csrxs6h5nvhvy" path="res://assets/objects/hearts/heart.png" id="9_jfiq6"]
-[ext_resource type="PackedScene" uid="uid://cn23b1p2ut1vd" path="res://scenes/objects/items/collectable.tscn" id="9_vafmq"]
 [ext_resource type="Script" path="res://fall_area.gd" id="10_3sm1c"]
 [ext_resource type="PackedScene" uid="uid://dfc1pgj3xjeqk" path="res://scenes/objects/characters/mushroom.tscn" id="11_1dsek"]
+[ext_resource type="PackedScene" uid="uid://cn23b1p2ut1vd" path="res://scenes/objects/items/apple.tscn" id="12_fv503"]
 [ext_resource type="Texture2D" uid="uid://bjhg46g3s1845" path="res://assets/backgrounds/mountains/sky.png" id="15_p01as"]
 [ext_resource type="Texture2D" uid="uid://dwvukwcb3bpu" path="res://assets/backgrounds/mountains/far-clouds.png" id="16_n01bj"]
 [ext_resource type="Texture2D" uid="uid://dm0mcwlh2lgrs" path="res://assets/backgrounds/mountains/near-clouds.png" id="17_ncwym"]
@@ -788,37 +788,37 @@ metadata/move_offset = 200
 metadata/speed = 75
 metadata/move_y = true
 
-[node name="collectable" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(1279, 317)
 
-[node name="collectable2" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable2" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(1453, 302)
 
-[node name="collectable3" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable3" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(1648, 323)
 
-[node name="collectable4" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable4" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(1795, 318)
 
-[node name="collectable5" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable5" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(1892, 309)
 
-[node name="collectable6" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable6" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(1844, 310)
 
-[node name="collectable7" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable7" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(1983, 315)
 
-[node name="collectable8" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable8" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(1405, 318)
 
-[node name="collectable9" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable9" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(2187, 321)
 
-[node name="collectable10" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable10" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(2325, 198)
 
-[node name="collectable11" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable11" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(802, 516)
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -831,49 +831,49 @@ shape = SubResource("WorldBoundaryShape2D_px4jg")
 [node name="mushroom" parent="." instance=ExtResource("11_1dsek")]
 position = Vector2(289, 295)
 
-[node name="collectable12" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable12" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(2423, 367)
 
 [node name="mushroom2" parent="." instance=ExtResource("11_1dsek")]
 position = Vector2(2694, 582)
 
-[node name="collectable13" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable13" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(2509, 599)
 
-[node name="collectable14" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable14" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(2511, 312)
 
-[node name="collectable15" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable15" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(2602, 268)
 
-[node name="collectable16" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable16" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(2512, 222)
 
-[node name="collectable17" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable17" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(2610, 365)
 
-[node name="collectable18" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable18" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(2522, 418)
 
-[node name="collectable19" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable19" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(2616, 464)
 
-[node name="collectable20" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable20" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(2516, 509)
 
-[node name="collectable21" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable21" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(2613, 605)
 
-[node name="collectable22" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable22" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(2711, 364)
 
-[node name="collectable23" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable23" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(2803, 366)
 
-[node name="collectable24" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable24" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(2896, 364)
 
-[node name="collectable25" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable25" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(2658, 72)
 
 [node name="movingPlatform3" parent="." instance=ExtResource("7_t4fba")]
@@ -882,46 +882,46 @@ metadata/move_offset = 500
 metadata/speed = 80
 metadata/move_y = true
 
-[node name="collectable26" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable26" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(3285, 604)
 
-[node name="collectable27" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable27" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(3200, 587)
 
-[node name="collectable28" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable28" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(2986, 608)
 
-[node name="collectable29" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable29" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(3144, 611)
 
-[node name="collectable30" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable30" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(3628, 610)
 
-[node name="collectable31" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable31" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(3429, 34)
 
-[node name="collectable32" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable32" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(3334, 33)
 
-[node name="collectable33" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable33" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(3239, 34)
 
-[node name="collectable34" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable34" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(3148, 32)
 
-[node name="collectable35" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable35" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(3110, 178)
 
-[node name="collectable36" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable36" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(2113, 134)
 
-[node name="collectable37" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable37" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(1300, 130)
 
-[node name="collectable38" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable38" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(1504, 117)
 
-[node name="collectable39" parent="." instance=ExtResource("9_vafmq")]
+[node name="collectable39" parent="." instance=ExtResource("12_fv503")]
 position = Vector2(1792, 128)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]

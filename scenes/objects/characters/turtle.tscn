@@ -379,10 +379,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qdfbf"]
-size = Vector2(47, 35)
+size = Vector2(55, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jlaof"]
-size = Vector2(51, 39)
+size = Vector2(56.5, 37.5)
 
 [node name="turtle" type="RigidBody2D"]
 script = ExtResource("1_g2kcy")
@@ -395,14 +395,14 @@ sprite_frames = SubResource("SpriteFrames_jejit")
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(12.5, 23.5)
+position = Vector2(13.5, 18)
 shape = SubResource("RectangleShape2D_qdfbf")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(0, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(12.5, 20.5)
+position = Vector2(13.25, 14.75)
 shape = SubResource("RectangleShape2D_jlaof")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

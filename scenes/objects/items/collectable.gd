@@ -8,7 +8,6 @@ func _on_body_entered(body):
 	if(body.name == "CharacterBody2D"):
 		display_particle()
 		queue_free()
-		game_manager.add_point()
 
 func display_particle():
 	var particle_node = particle.instantiate()
