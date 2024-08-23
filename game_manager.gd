@@ -34,7 +34,6 @@ func add_point():
 func _process(delta):
 	time += delta
 	timer.text = str(round(time * 10000) / 10000)
-	
 
 func save_stats():
 	var save_path = "user://data.ini"
