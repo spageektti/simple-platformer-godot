@@ -72,15 +72,17 @@ func _on_area_2d_body_entered(body):
 				body.hit()
 			if(x_delta > 0):
 				body.jump_back(250)
+				isLeft = false
 			else:
 				body.jump_back(-250)
+				isLeft = true
 	print(body.get_name())
 
 func _on_animated_sprite_2d_animation_finished():
 	display_random_fruit()
 	if(is_shell and hit_from_up):
 		queue_free()
-	if(not is_shell):
+	else:
 		is_shell = true
 		animated_sprite_2d.play("shell_idle")
 
