@@ -80,7 +80,8 @@ func display_particle():
 	particle_node.position = position
 	get_parent().add_child(particle_node)
 	await get_tree().create_timer(1).timeout
-	particle_node.queue_free()
+	if is_instance_valid(particle_node):
+		particle_node.queue_free()
 	
 func add_point():
 	game_manager.add_point()
