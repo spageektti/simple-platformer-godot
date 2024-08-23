@@ -45,12 +45,12 @@ func save_stats():
 	else:
 		print("Got data for scene ", scene_name)
 	
-	var best_points_health = config_file.get_value("level4_best_points", "health", "0")
-	var best_points_points = config_file.get_value("level4_best_points", "points", "0")
-	var best_points_time = config_file.get_value("level4_best_points", "time", "0")
-	var best_time_health = config_file.get_value("level4_best_time", "health", "0")
-	var best_time_points = config_file.get_value("level4_best_time", "points", "0")
-	var best_time_time = config_file.get_value("level4_best_time", "time", "0")
+	var best_points_health = int(config_file.get_value("level4_best_points", "health", "0"))
+	var best_points_points = int(config_file.get_value("level4_best_points", "points", "0"))
+	var best_points_time = int(config_file.get_value("level4_best_points", "time", "0"))
+	var best_time_health = int(config_file.get_value("level4_best_time", "health", "0"))
+	var best_time_points = int(config_file.get_value("level4_best_time", "points", "0"))
+	var best_time_time = int(config_file.get_value("level4_best_time", "time", "0"))
 	
 	if(best_points_points <= points):
 		if(best_points_points == points):
@@ -65,7 +65,7 @@ func save_stats():
 			best_points_health = lives
 			best_points_points = points
 	
-	if(best_time_time <= time):
+	if(best_time_time >= time):
 		if(best_time_time == time):
 			if(best_time_points <= points):
 				if(best_time_points == points and best_time_health < lives):
