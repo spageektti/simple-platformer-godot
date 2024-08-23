@@ -177,6 +177,7 @@ size = Vector2(69.5, 47.5)
 
 [node name="skull" type="RigidBody2D"]
 script = ExtResource("1_b0hq6")
+moving = true
 reversedDirection = true
 lockPositionY = true
 
