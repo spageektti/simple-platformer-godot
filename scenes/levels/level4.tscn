@@ -5,11 +5,11 @@
 [ext_resource type="PackedScene" uid="uid://d1x0qq1t5n6vd" path="res://scenes/objects/characters/main_character.tscn" id="3_5t4d6"]
 [ext_resource type="Script" path="res://game_manager.gd" id="4_lb2su"]
 [ext_resource type="PackedScene" uid="uid://ctwhi27gdub3j" path="res://scenes/objects/items/end.tscn" id="5_0346d"]
-[ext_resource type="PackedScene" uid="uid://1wpee1v4kpfg" path="res://scenes/menu/main_menu.tscn" id="6_ttgq6"]
 [ext_resource type="Script" path="res://scenes/levels/pause.gd" id="7_oxfj5"]
 [ext_resource type="Texture2D" uid="uid://c6tbk8xp0vorn" path="res://assets/paused.png" id="8_jwf0r"]
 [ext_resource type="Texture2D" uid="uid://csrxs6h5nvhvy" path="res://assets/objects/hearts/heart.png" id="9_c717g"]
 [ext_resource type="PackedScene" uid="uid://du2dgl1g44bv5" path="res://scenes/objects/platforms/steel_moving_platform.tscn" id="10_2hup1"]
+[ext_resource type="PackedScene" uid="uid://b6fd1ylhp4rnq" path="res://scenes/levels/level5.tscn" id="11_lpukg"]
 [ext_resource type="Script" path="res://fall_area.gd" id="13_gvqba"]
 [ext_resource type="Texture2D" uid="uid://bjhg46g3s1845" path="res://assets/backgrounds/mountains/sky.png" id="15_ic4ex"]
 [ext_resource type="Texture2D" uid="uid://dwvukwcb3bpu" path="res://assets/backgrounds/mountains/far-clouds.png" id="16_0noo1"]
@@ -626,6 +626,7 @@ corner_radius_bottom_left = 5
 [node name="Node" type="Node"]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_offset = Vector2(938, 239.5)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(0, 1)
@@ -735,7 +736,7 @@ scene_name = "level4"
 
 [node name="end" parent="." instance=ExtResource("5_0346d")]
 position = Vector2(3235, 116)
-target_level = ExtResource("6_ttgq6")
+target_level = ExtResource("11_lpukg")
 
 [node name="UI" type="CanvasLayer" parent="."]
 

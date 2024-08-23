@@ -23,10 +23,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -507.0
-offset_top = -148.0
-offset_right = 505.0
-offset_bottom = -74.0
+offset_left = -509.0
+offset_top = -290.0
+offset_right = 503.0
+offset_bottom = -216.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_f37oo")
@@ -34,43 +34,51 @@ expand_mode = 1
 
 [node name="level1" type="Button" parent="."]
 offset_left = 63.0
-offset_top = 346.0
+offset_top = 136.0
 offset_right = 307.0
-offset_bottom = 402.0
+offset_bottom = 192.0
 text = "Level 1
 "
 
 [node name="level2" type="Button" parent="."]
-offset_left = 327.0
-offset_top = 349.0
-offset_right = 571.0
-offset_bottom = 405.0
+offset_left = 324.0
+offset_top = 137.0
+offset_right = 568.0
+offset_bottom = 193.0
 text = "Level 2
 "
 
 [node name="level3" type="Button" parent="."]
-offset_left = 586.0
-offset_top = 351.0
-offset_right = 830.0
-offset_bottom = 407.0
+offset_left = 584.0
+offset_top = 135.0
+offset_right = 828.0
+offset_bottom = 191.0
 text = "Level 3
 "
 
 [node name="level4" type="Button" parent="."]
-offset_left = 849.0
-offset_top = 353.0
-offset_right = 1093.0
-offset_bottom = 409.0
+offset_left = 851.0
+offset_top = 135.0
+offset_right = 1095.0
+offset_bottom = 191.0
 text = "Level 4
+"
+
+[node name="level5" type="Button" parent="."]
+offset_left = 464.0
+offset_top = 382.0
+offset_right = 708.0
+offset_bottom = 438.0
+text = "Level 5
 "
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="level4" type="Panel" parent="UI"]
-offset_left = 851.0
-offset_top = 436.0
-offset_right = 1091.0
-offset_bottom = 562.0
+offset_left = 853.0
+offset_top = 218.0
+offset_right = 1093.0
+offset_bottom = 344.0
 
 [node name="level4Label" type="Label" parent="UI/level4"]
 unique_name_in_owner = true
@@ -87,11 +95,32 @@ Best points:
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="level5" type="Panel" parent="UI"]
+offset_left = 466.0
+offset_top = 465.0
+offset_right = 706.0
+offset_bottom = 591.0
+
+[node name="level5Label" type="Label" parent="UI/level5"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Best time:
+0$, 0.0000s, 3HP
+Best points:
+0$, 0.0000s, 3HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="level3" type="Panel" parent="UI"]
-offset_left = 587.0
-offset_top = 434.0
-offset_right = 827.0
-offset_bottom = 560.0
+offset_left = 585.0
+offset_top = 218.0
+offset_right = 825.0
+offset_bottom = 344.0
 
 [node name="level3Label" type="Label" parent="UI/level3"]
 unique_name_in_owner = true
@@ -109,10 +138,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="level2" type="Panel" parent="UI"]
-offset_left = 327.0
-offset_top = 426.0
-offset_right = 567.0
-offset_bottom = 552.0
+offset_left = 324.0
+offset_top = 214.0
+offset_right = 564.0
+offset_bottom = 340.0
 
 [node name="level2Label" type="Label" parent="UI/level2"]
 unique_name_in_owner = true
@@ -130,10 +159,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="level1" type="Panel" parent="UI"]
-offset_left = 64.0
-offset_top = 427.0
-offset_right = 304.0
-offset_bottom = 553.0
+offset_left = 69.0
+offset_top = 212.0
+offset_right = 309.0
+offset_bottom = 338.0
 
 [node name="level1Label" type="Label" parent="UI/level1"]
 unique_name_in_owner = true
@@ -154,3 +183,4 @@ vertical_alignment = 1
 [connection signal="pressed" from="level2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="level3" to="." method="_on_level_3_pressed"]
 [connection signal="pressed" from="level4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="level5" to="." method="_on_level_5_pressed"]

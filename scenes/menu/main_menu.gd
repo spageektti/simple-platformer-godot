@@ -4,6 +4,7 @@ extends Node
 @onready var level_2_label = %level2Label
 @onready var level_3_label = %level3Label
 @onready var level_4_label = %level4Label
+@onready var level_5_label = %level5Label
 
 func _on_level_1_pressed():
 	get_tree().change_scene_to_file("res://scenes/levels/level1.tscn")
@@ -16,6 +17,9 @@ func _on_level_3_pressed():
 
 func _on_level_4_pressed():
 	get_tree().change_scene_to_file("res://scenes/levels/level4.tscn")
+	
+func _on_level_5_pressed():
+	get_tree().change_scene_to_file("res://scenes/levels/level5.tscn")
 
 func _ready():
 	load_stats()
@@ -26,6 +30,17 @@ func load_stats():
 	var error = config_file.load(save_path)
 
 	if error == OK:
+		# Level 5
+		var best_points_health_5 = config_file.get_value("level5_best_points", "health", "0")
+		var best_points_points_5 = config_file.get_value("level5_best_points", "points", "0")
+		var best_points_time_5 = config_file.get_value("level5_best_points", "time", "0")
+		var best_time_health_5 = config_file.get_value("level5_best_time", "health", "0")
+		var best_time_points_5 = config_file.get_value("level5_best_time", "points", "0")
+		var best_time_time_5 = config_file.get_value("level5_best_time", "time", "0")
+
+		level_5_label.text = "Best points:\n" + str(best_points_points_5) + "$ | " + str(best_points_time_5) + "s | " + str(best_points_health_5) + "HP\n"
+		level_5_label.text += "Best time:\n" + str(best_time_points_5) + "$ | " + str(best_time_time_5) + "s | " + str(best_time_health_5) + "HP\n"
+		
 		# Level 4
 		var best_points_health_4 = config_file.get_value("level4_best_points", "health", "0")
 		var best_points_points_4 = config_file.get_value("level4_best_points", "points", "0")
