@@ -38,12 +38,56 @@ func _process(delta):
 func save_stats():
 	var save_path = "user://data.ini"
 	var config_file = ConfigFile.new()
-
-	config_file.set_value(scene_name, "health", lives)
-	config_file.set_value(scene_name, "points", points)
-	config_file.set_value(scene_name, "time", time)
-
-	var error = config_file.save(save_path)
+	var error = config_file.load(save_path)
+	
+	if error:
+		print("There was some errors getting stats from a file: ", error, "Report this err to contact@spageektti.cc")
+	else:
+		print("Got data for scene ", scene_name)
+	
+	var best_points_health = config_file.get_value("level4_best_points", "health", "0")
+	var best_points_points = config_file.get_value("level4_best_points", "points", "0")
+	var best_points_time = config_file.get_value("level4_best_points", "time", "0")
+	var best_time_health = config_file.get_value("level4_best_time", "health", "0")
+	var best_time_points = config_file.get_value("level4_best_time", "points", "0")
+	var best_time_time = config_file.get_value("level4_best_time", "time", "0")
+	
+	if(best_points_points <= points):
+		if(best_points_points == points):
+			if(best_points_time >= time):
+				if(best_points_time == time and best_points_health < time):
+					best_points_health = lives
+				else:
+					best_points_time = time
+					best_points_health = lives
+		else:
+			best_points_time = time
+			best_points_health = lives
+			best_points_points = points
+	
+	if(best_time_time <= time):
+		if(best_time_time == time):
+			if(best_time_points <= points):
+				if(best_time_points == points and best_time_health < lives):
+					best_time_health = lives
+				else:
+					best_time_points = points
+			else:
+				best_time_points = points
+				best_time_health = lives
+		else:
+			best_time_time = time
+			best_time_points = points
+			best_time_health = lives
+	
+	config_file.set_value("level4_best_points", "health", best_points_health)
+	config_file.set_value("level4_best_points", "points", best_points_points)
+	config_file.set_value("level4_best_points", "time", best_points_time)
+	config_file.set_value("level4_best_time", "health", best_time_health)
+	config_file.set_value("level4_best_time", "points", best_time_points)
+	config_file.set_value("level4_best_time", "time", best_time_time)
+	
+	error = config_file.save(save_path)
 	if error:
 		print("There was some errors when saving stats to a file: ", error, "Report this err to contact@spageektti.cc")
 	else:

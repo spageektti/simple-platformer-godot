@@ -23,10 +23,15 @@ func load_stats():
 	var error = config_file.load(save_path)
 
 	if error == OK:
-		var health = config_file.get_value("level4", "health", "N/A")
-		var points = config_file.get_value("level4", "points", "N/A")
-		var time = config_file.get_value("level4", "time", "N/A")
+		var best_points_health = config_file.get_value("level4_best_points", "health", "0")
+		var best_points_points = config_file.get_value("level4_best_points", "points", "0")
+		var best_points_time = config_file.get_value("level4_best_points", "time", "0")
+		var best_time_health = config_file.get_value("level4_best_time", "health", "0")
+		var best_time_points = config_file.get_value("level4_best_time", "points", "0")
+		var best_time_time = config_file.get_value("level4_best_time", "time", "0")
 
-		level_4_label.text = str(points) + "$ | " + str(time) + "s | " + str(health) + "HP"
+
+		level_4_label.text = "Best points:\n" + str(best_points_points) + "$ | " + str(best_points_time) + "s | " + str(best_points_health) + "HP\n"
+		level_4_label.text += "Best time:\n" + str(best_time_points) + "$ | " + str(best_time_time) + "s | " + str(best_time_health) + "HP\n"
 	else:
-		print("There was an error loading stats from the file: ", error)
+		print("There was some errors getting stats from a file: ", error, "Report this err to contact@spageektti.cc")
