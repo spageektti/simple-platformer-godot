@@ -87,6 +87,69 @@ Best points:
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="level3" type="Panel" parent="UI"]
+offset_left = 587.0
+offset_top = 434.0
+offset_right = 827.0
+offset_bottom = 560.0
+
+[node name="level3Label" type="Label" parent="UI/level3"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Best time:
+0$, 0.0000s, 3HP
+Best points:
+0$, 0.0000s, 3HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="level2" type="Panel" parent="UI"]
+offset_left = 327.0
+offset_top = 426.0
+offset_right = 567.0
+offset_bottom = 552.0
+
+[node name="level2Label" type="Label" parent="UI/level2"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Best time:
+0$, 0.0000s, 3HP
+Best points:
+0$, 0.0000s, 3HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="level1" type="Panel" parent="UI"]
+offset_left = 64.0
+offset_top = 427.0
+offset_right = 304.0
+offset_bottom = 553.0
+
+[node name="level1Label" type="Label" parent="UI/level1"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Best time:
+0$, 0.0000s, 3HP
+Best points:
+0$, 0.0000s, 3HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="level2" to="." method="_on_level_2_pressed"]
 [connection signal="pressed" from="level3" to="." method="_on_level_3_pressed"]

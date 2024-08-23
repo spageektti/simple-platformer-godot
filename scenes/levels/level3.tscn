@@ -658,6 +658,7 @@ position_smoothing_enabled = true
 unique_name_in_owner = true
 script = ExtResource("4_l8w2q")
 hearts = [NodePath("../UI/Hearths/HBoxContainer/Hearth1"), NodePath("../UI/Hearths/HBoxContainer/Hearth2"), NodePath("../UI/Hearths/HBoxContainer/Hearth3")]
+scene_name = "level3"
 
 [node name="Collectables" type="Node" parent="."]
 
@@ -1058,7 +1059,6 @@ position = Vector2(696, 224)
 [node name="skull" parent="." instance=ExtResource("28_tnb1e")]
 position = Vector2(3064, 584)
 lock_rotation = true
-moving = true
 
 [node name="border5" parent="." instance=ExtResource("20_ebvgb")]
 position = Vector2(2942, 604)

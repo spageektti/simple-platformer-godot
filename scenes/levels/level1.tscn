@@ -657,6 +657,7 @@ position_smoothing_enabled = true
 unique_name_in_owner = true
 script = ExtResource("4_a66jy")
 hearts = [NodePath("../UI/Hearths/HBoxContainer/Hearth1"), NodePath("../UI/Hearths/HBoxContainer/Hearth2"), NodePath("../UI/Hearths/HBoxContainer/Hearth3")]
+scene_name = "level1"
 
 [node name="Collectables" type="Node" parent="."]
 
