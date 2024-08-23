@@ -41,9 +41,9 @@ func _process(delta):
 	
 	if((moving and not is_shell) or is_moving_shell):
 		if(isLeft):
-			position.x += delta * 50
+			position.x += delta * (500 if is_shell else 50)
 		else:
-			position.x -= delta * 50
+			position.x -= delta * (500 if is_shell else 50)
 		if(reversedDirection):
 			animated_sprite_2d.flip_h = not isLeft
 		else:
@@ -55,7 +55,7 @@ func _on_area_2d_body_entered(body):
 		var x_delta = body.position.x - position.x
 		print(body.position.y)
 		print(position.y)
-		if(y_delta > 6):
+		if(y_delta > 3):
 			if(is_shell):
 				animated_sprite_2d.play("shell_hit_top")
 				hit_from_up = true
@@ -64,7 +64,7 @@ func _on_area_2d_body_entered(body):
 			body.display_particle()
 			body.jump()
 		else:
-			if(is_shell):
+			if(is_shell and not is_moving_shell):
 				is_moving_shell = true
 				animated_sprite_2d.play("shell_hit_side")
 			else:
@@ -81,14 +81,22 @@ func _on_area_2d_body_entered(body):
 func _on_animated_sprite_2d_animation_finished():
 	display_random_fruit()
 	if(is_shell and hit_from_up):
-		queue_free()
+		if(is_moving_shell):
+			queue_free()
+		else:
+			hit_from_up = false
+			animated_sprite_2d.play("shell_idle")
+			is_moving_shell = true
 	else:
 		is_shell = true
 		animated_sprite_2d.play("shell_idle")
 
 func _on_area_2d_area_entered(area):
-	if area.get_name().begins_with("border") and (not is_shell or not area.get_meta("shell_passtrough")):
+	if area.get_name().begins_with("border") and (not is_shell or not area.get_meta("destroy_shell")):
 		isLeft = not isLeft
+	elif (area.get_meta("destroy_shell") and is_shell):
+		hit_from_up = true
+		animated_sprite_2d.play("shell_hit_side")
 	print(area.get_name())
 	
 func display_random_fruit():

@@ -4,7 +4,7 @@
 b = Vector2(0, 2)
 
 [node name="border" type="Area2D"]
-metadata/shell_passtrough = false
+metadata/destroy_shell = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("SegmentShape2D_v7vh0")
