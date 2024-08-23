@@ -9,6 +9,7 @@ var half_heart = load("res://assets/objects/hearts/half_heart.png")
 var no_heart = load("res://assets/objects/hearts/no_heart.png")
 
 @export var hearts : Array[Node]
+@export var scene_name : String
 @onready var points_label = %pointsLabel
 @onready var timer = %timer
 
@@ -36,14 +37,15 @@ func _process(delta):
 	
 
 func save_stats():
-	var scene_name = get_tree().current_scene.name
 	var save_path = "user://data.ini"
 	var config_file = ConfigFile.new()
 
-	config_file.set_value("Player", "health", lives)
-	config_file.set_value("Player", "points", points)
-	config_file.set_value("Player", "time", time)
+	config_file.set_value(scene_name, "health", lives)
+	config_file.set_value(scene_name, "points", points)
+	config_file.set_value(scene_name, "time", time)
 
 	var error = config_file.save(save_path)
 	if error:
 		print("There was some errors when saving stats to a file: ", error, "Report this err to contact@spageektti.cc")
+	else:
+		print("Saved data for scene ", scene_name)
