@@ -32,4 +32,18 @@ func add_point():
 	
 func _process(delta):
 	time += delta
-	timer.text = str(time)
+	timer.text = str(round(time * 10000) / 10000)
+	
+
+func save_stats():
+	var scene_name = get_tree().current_scene.name
+	var save_path = "user://data.ini"
+	var config_file = ConfigFile.new()
+
+	config_file.set_value("Player", "health", lives)
+	config_file.set_value("Player", "points", points)
+	config_file.set_value("Player", "time", time)
+
+	var error = config_file.save(save_path)
+	if error:
+		print("There was some errors when saving stats to a file: ", error, "Report this err to contact@spageektti.cc")
