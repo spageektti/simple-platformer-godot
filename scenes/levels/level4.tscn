@@ -902,6 +902,7 @@ position = Vector2(290, 688)
 
 [node name="border6" parent="." instance=ExtResource("19_3qu3e")]
 position = Vector2(992, 688)
+metadata/shell_passtrough = true
 
 [node name="border7" parent="." instance=ExtResource("19_3qu3e")]
 position = Vector2(1394, 694)

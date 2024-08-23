@@ -308,7 +308,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4y24p")
 }],
-"loop": true,
+"loop": false,
 "name": &"shell_hit_side",
 "speed": 15.0
 }, {
@@ -328,7 +328,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_46wsa")
 }],
-"loop": true,
+"loop": false,
 "name": &"shell_hit_top",
 "speed": 15.0
 }, {
@@ -371,6 +371,7 @@ texture_filter = 1
 position = Vector2(12.5, 12.5)
 scale = Vector2(1.78125, 1.78125)
 sprite_frames = SubResource("SpriteFrames_pwcby")
+animation = &"shell_hit_top"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

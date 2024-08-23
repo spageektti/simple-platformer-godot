@@ -4,6 +4,10 @@ extends RigidBody2D
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @export var moving = false
 
+var is_shell = false
+var is_moving_shell = false
+var hit_from_up = false
+
 var pineapple = load("res://scenes/objects/items/collectables/pineapple.tscn")
 var apple = load("res://scenes/objects/items/collectables/apple.tscn")
 var bananas = load("res://scenes/objects/items/collectables/bananas.tscn")
@@ -35,7 +39,7 @@ func _process(delta):
 	if(lockPositionY):
 		position.y = lock_position_y
 	
-	if(moving):
+	if((moving and not is_shell) or is_moving_shell):
 		if(isLeft):
 			position.x += delta * 50
 		else:
@@ -52,12 +56,20 @@ func _on_area_2d_body_entered(body):
 		print(body.position.y)
 		print(position.y)
 		if(y_delta > 6):
-			animated_sprite_2d.play("hit")
+			if(is_shell):
+				animated_sprite_2d.play("shell_hit_top")
+				hit_from_up = true
+			else:
+				animated_sprite_2d.play("hit")
 			body.display_particle()
 			body.jump()
 		else:
-			game_manager.decrease_health()
-			body.hit()
+			if(is_shell):
+				is_moving_shell = true
+				animated_sprite_2d.play("shell_hit_side")
+			else:
+				game_manager.decrease_health()
+				body.hit()
 			if(x_delta > 0):
 				body.jump_back(250)
 			else:
@@ -66,10 +78,14 @@ func _on_area_2d_body_entered(body):
 
 func _on_animated_sprite_2d_animation_finished():
 	display_random_fruit()
-	queue_free()
+	if(is_shell and hit_from_up):
+		queue_free()
+	if(not is_shell):
+		is_shell = true
+		animated_sprite_2d.play("shell_idle")
 
 func _on_area_2d_area_entered(area):
-	if area.get_name().begins_with("border"):
+	if area.get_name().begins_with("border") and (not is_shell or not area.get_meta("shell_passtrough")):
 		isLeft = not isLeft
 	print(area.get_name())
 	
