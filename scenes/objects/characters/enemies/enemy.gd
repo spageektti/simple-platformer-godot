@@ -55,9 +55,11 @@ func _on_area_2d_body_entered(body):
 			animated_sprite_2d.play("hit")
 			body.display_particle()
 			body.jump()
+			body.play_enemy_kill_sound()
 		else:
 			game_manager.decrease_health()
 			body.hit()
+			body.play_hurt_sound()
 			if(x_delta > 0):
 				body.jump_back(250)
 			else:

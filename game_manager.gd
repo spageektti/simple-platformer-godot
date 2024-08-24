@@ -30,7 +30,11 @@ func add_point():
 	points += 1
 	print(points)
 	points_label.text = "Points: " + str(points)
-	
+	if(points % 10 == 0):
+		# increase by 1, then decrease by 0.5, so the heart bar is updated by calling decrease_health()
+		lives += 1
+		decrease_health()
+		
 func _process(delta):
 	time += delta
 	timer.text = str(round(time * 10000) / 10000)

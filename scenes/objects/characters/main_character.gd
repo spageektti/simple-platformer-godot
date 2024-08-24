@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -450.0
 
+@onready var audio_player = %audioPlayer
 @onready var sprite_2d = $Sprite2D
 @export var double_jump_allowed : bool # shouldn't be enabled on all levels and maybe I will add difficulty levels in future
 @export var double_jump_offset : float = 125.0
@@ -12,6 +13,31 @@ var particle = load("res://scenes/objects/particles.tscn")
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jump_count = 0
+
+var collectable_sound = preload("res://assets/sounds/coin.wav")
+var jump_sound = preload("res://assets/sounds/jump.wav")
+var hurt_sound = preload("res://assets/sounds/hurt.wav")
+var enemy_kill_sound = preload("res://assets/sounds/explosion.wav")
+var health_increase_sound = preload("res://assets/sounds/power_up.wav")
+
+func play_sound(sound: AudioStream):
+	audio_player.stream = sound
+	audio_player.play()
+
+func play_collectable_sound():
+	play_sound(collectable_sound)
+
+func play_jump_sound():
+	play_sound(jump_sound)
+
+func play_hurt_sound():
+	play_sound(hurt_sound)
+
+func play_enemy_kill_sound():
+	play_sound(enemy_kill_sound)
+
+func play_health_increase_sound():
+	play_sound(health_increase_sound)
 
 func _physics_process(delta):
 	
@@ -57,6 +83,7 @@ func _physics_process(delta):
 		sprite_2d.flip_h = isLeft
 
 func jump():
+	play_jump_sound()
 	if(jump_count < 1):
 		velocity.y = JUMP_VELOCITY
 	else:
@@ -85,3 +112,5 @@ func display_particle():
 	
 func add_point():
 	game_manager.add_point()
+	if(game_manager.points % 10 == 0):
+		play_health_increase_sound()

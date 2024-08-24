@@ -7,6 +7,7 @@ func _on_body_entered(body):
 		display_particle()
 		queue_free()
 		body.add_point()
+		body.play_collectable_sound()
 
 func display_particle():
 	var particle_node = particle.instantiate()

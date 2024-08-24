@@ -59,16 +59,19 @@ func _on_area_2d_body_entered(body):
 			if(is_shell):
 				animated_sprite_2d.play("shell_hit_top")
 				hit_from_up = true
+				
 			else:
 				animated_sprite_2d.play("hit")
 			body.display_particle()
 			body.jump()
+			body.play_enemy_kill_sound()
 		else:
 			if(is_shell and not is_moving_shell):
 				is_moving_shell = true
 				animated_sprite_2d.play("shell_hit_side")
 			else:
 				game_manager.decrease_health()
+				body.play_hurt_sound()
 				body.hit()
 			if(x_delta > 0):
 				body.jump_back(250)

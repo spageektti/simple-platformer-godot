@@ -29,11 +29,13 @@ func _on_area_2d_body_entered(body):
 			body.display_particle()
 			body.jump()
 			curr_action = 2
+			body.play_enemy_kill_sound()
 		else:
 			game_manager.decrease_health()
 			if(spikes_on): #damage more when spikes on
 				game_manager.decrease_health()
 			body.hit()
+			body.play_hurt_sound()
 			if(x_delta > 0):
 				body.jump_back(250)
 			else:
