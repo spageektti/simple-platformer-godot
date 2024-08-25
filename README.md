@@ -1,5 +1,7 @@
 # Simple Platformer
 
+![](https://cloud-46biuanx3-hack-club-bot.vercel.app/0zrzut_ekranu_20240825_125844.png)
+
 Welcome to **Simple Platformer**, a classic platforming experience that combines nostalgic charm with modern gameplay elements. Built with love using the Godot Engine, this game is designed to challenge your skills while providing hours of entertainment.
 
 ## Game Features
